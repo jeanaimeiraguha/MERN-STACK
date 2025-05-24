@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config(); // Load .env variables
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -25,7 +25,7 @@ app.post('/user/addNew', (req, res) => {
     return res.status(400).json({ error: "All fields are required: name, email, age" });
   }
 
-  Students.create({ name, email, age })  // use correct model: Students
+  Students.create({ name, email, age }) 
     .then(newUser => {
       res.status(201).json({ message: "User added successfully", user: newUser });
     })
